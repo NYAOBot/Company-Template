@@ -1,0 +1,1 @@
+AGENTS.md と codex/roles/pr-lead.md を読んで、以下の告知テーマについてSNS投稿案とプレスリリース草案を作ってください。テーマ: 

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [ "$#" -lt 2 ]; then
+  echo "Usage: scripts/codex-role <role> <request>" >&2
+  echo "Example: scripts/codex-role ceo '今月の最重要KPIを決めて'" >&2
+  exit 1
+fi
+ROLE="$1"
+shift
+REQ="$*"
+ROLE_FILE="codex/roles/${ROLE}.md"
+if [ ! -f "$ROLE_FILE" ]; then
+  echo "Role not found: $ROLE_FILE" >&2
+  exit 1
+fi
+codex exec "AGENTS.md と ${ROLE_FILE} を読んで、次の依頼を実行して: ${REQ}"

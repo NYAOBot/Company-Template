@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [ "$#" -lt 2 ]; then
+  echo "Usage: scripts/codex-workflow <workflow> <request>" >&2
+  echo "Example: scripts/codex-workflow company-meeting '今週の経営会議'" >&2
+  exit 1
+fi
+WORKFLOW="$1"
+shift
+REQ="$*"
+WORKFLOW_FILE="codex/workflows/${WORKFLOW}.md"
+if [ ! -f "$WORKFLOW_FILE" ]; then
+  echo "Workflow not found: $WORKFLOW_FILE" >&2
+  exit 1
+fi
+codex exec "AGENTS.md と ${WORKFLOW_FILE} を読んで、次の依頼を実行して: ${REQ}"

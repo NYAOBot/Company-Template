@@ -2,7 +2,7 @@
 .env.*
 !.env.example
 .DS_Store
-.claude/settings.local.json
+.codex/tmp/
 node_modules/
 dist/
 build/

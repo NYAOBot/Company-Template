@@ -1,0 +1,1 @@
+AGENTS.md と codex/roles/ceo.md を読んで、以下のテーマについて経営判断してください。テーマ: 
